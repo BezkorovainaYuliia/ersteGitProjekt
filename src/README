@@ -1,0 +1,38 @@
+Bonus: Zusammenarbeit an einer Java-Anwendung
+Finde einen Partner oder eine Gruppe, um gemeinsam an dieser Aufgabe zu arbeiten.
+
+Schritt 1: Erstelle eine neue Java-Anwendung in IntelliJ.
+Schritt 2: Erstelle ein Git-Repository.
+Schreibe eine Anwendung, die einen Kalender ausgibt.
+
+Jede Zeile stellt eine Woche dar, jede Spalte einen Wochentag.
+Das Jahr beginnt mit einem Montag und ist kein Schaltjahr. Die Monate von Januar bis Dezember sollen ausgegeben werden.
+Die Ausgabe sollte wie folgt aussehen:
+
+Januar
+Mo Di Mi Do Fr Sa So
+ 1  2  3  4  5  6  7
+ 8  9 10 11 12 13 14
+15 16 17 18 19 20 21
+22 23 24 25 26 27 28
+29 30 31
+
+Februar
+Mo Di Mi Do Fr Sa So
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28
+
+... usw.
+
+Bonus: Deluxe-Kalender
+Jetzt kannst du alle erdenklichen Funktionen hinzufügen. Hier sind einige Ideen:
+
+Eingabe eines Jahres über Scanner und System.in
+Bestimmung, ob das Jahr ein Schaltjahr ist
+Berechnung des Wochentags für den 1. Januar des Jahres
+Hervorhebung von Feiertagen, einschließlich beweglicher Feiertage
+Unterstützung für mehrere Sprachen
+Variable Spaltenbreite (z. B. Breite 2 für Mo, Breite 3 für Mon, Breite 6 für Monday)
