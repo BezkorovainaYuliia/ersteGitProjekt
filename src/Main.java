@@ -14,6 +14,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int jahr = sc.nextInt();
 
+        System.out.println("Spaltenbreite ist ");
+        int grossBreite = sc.nextInt();
+        String breite = "\t";
+         for (int i = 0; i < grossBreite; i++){
+             breite += breite;
+         }
+
         //Bestimmung, ob das Jahr ein Schaltjahr ist
         System.out.println("Ist das Jahr ein Schaltjahr \t" + (istSchaltjahr(jahr) ? "ja" : "nein"));
 
@@ -29,18 +36,18 @@ public class Main {
             int tagenInMonat = yearMonth.lengthOfMonth();
 
             System.out.println(MONATEN[iMonaten]);
-            printWocheName();
+            printWocheName(breite);
 
             int startMonatWochetag = calendar.get(Calendar.DAY_OF_WEEK) - 2;
             if (startMonatWochetag == -1) startMonatWochetag = 6;
 
             int tag = 1;
             for (int j = 0; j < startMonatWochetag; j++){
-                System.out.print("\t");
+                System.out.print(breite);
             }
             for(int i = startMonatWochetag; i < 7; i++){
 
-                System.out.print(tag + "\t");
+                System.out.print(tag + breite);
                 tag++;
             }
 
@@ -52,7 +59,7 @@ public class Main {
                     System.out.println();
                 }
                 if(counter <= 7){
-                    System.out.print(tag + "\t");
+                    System.out.print(tag + breite);
                 }
                 counter++;
             }
@@ -60,9 +67,9 @@ public class Main {
         }
     }
 
-    public static void printWocheName(){
+    public static void printWocheName(String breite) {
         for (String wocheTag :  WOCHE){
-            System.out.print(wocheTag + "\t");
+            System.out.print(wocheTag + breite);
         }
         System.out.println();
     }

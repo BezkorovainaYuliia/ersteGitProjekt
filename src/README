@@ -30,9 +30,9 @@ Mo Di Mi Do Fr Sa So
 Bonus: Deluxe-Kalender
 Jetzt kannst du alle erdenklichen Funktionen hinzufügen. Hier sind einige Ideen:
 
-Eingabe eines Jahres über Scanner und System.in
-Bestimmung, ob das Jahr ein Schaltjahr ist
++Eingabe eines Jahres über Scanner und System.in
++Bestimmung, ob das Jahr ein Schaltjahr ist
 Berechnung des Wochentags für den 1. Januar des Jahres
 Hervorhebung von Feiertagen, einschließlich beweglicher Feiertage
 Unterstützung für mehrere Sprachen
-Variable Spaltenbreite (z. B. Breite 2 für Mo, Breite 3 für Mon, Breite 6 für Monday)
++Variable Spaltenbreite (z. B. Breite 2 für Mo, Breite 3 für Mon, Breite 6 für Monday)
