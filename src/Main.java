@@ -40,6 +40,7 @@ public class Main {
                 System.out.print(tag + "\t");
                 tag++;
             }
+
             System.out.println();
             int counter = 1;
             for (; tag <= tagenInMonat; tag++){
