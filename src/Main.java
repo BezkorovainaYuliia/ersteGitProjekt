@@ -5,16 +5,36 @@ import java.util.Scanner;
 
 public class Main {
     //Static CONSTANTEN
-    public static final String[] WOCHE = {"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"};
-    public static final String[] MONATEN = {"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August",
-                                            "September", "October", "November", "December"};
+    public static final String[][] WOCHE = {{"Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"},
+                                            {"Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"},
+                                            {"Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд"}};
+
+    public static final String[][] MONATEN = {{"Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "October", "November", "December"},
+            {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"},
+            {"Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"}};
+
+    public static final String[] JAHR_MESSAGE = {"Wähl das Jahr: ", "Choose the year: ", "Оберіть рік: "};
+
+    public static final String[] BREITE_MESSAGE = {"Spaltenbreite ist ", "Column width is ", "Ширина стовпця дорівнює "};
+
+    public static final String[] SCHALTJAHR_MESSAGE = {"Ist das Jahr ein Schaltjahr? \t", "Is the year a leap year?  \t", "Чи є рік високосним? \t"};
+
+    public static final String[] JA_ANTWORT = {"JA", "YES", "ТАК"};
+    public static final String[] NEIN_ANTWORT = {"NEIN", "NO", "НІ"};
+
     public static void main(String[] args) {
 
-        System.out.println("Wähl das Jahr: "   );
         Scanner sc = new Scanner(System.in);
+        System.out.println("Wähle eine Sprache (1 - Deutsch, 2 - English, 3 - Ukrainisch)");
+        int sprache = sc.nextInt() - 1;
+        if (sprache > 3){
+            System.out.println("Es gibt ein Fehler. Weiter spreche ich auf Deutsch");
+            sprache = 0;
+        }
+        System.out.println(JAHR_MESSAGE[sprache]);
         int jahr = sc.nextInt();
 
-        System.out.println("Spaltenbreite ist ");
+        System.out.println(BREITE_MESSAGE[sprache]);
         int grossBreite = sc.nextInt();
         String breite = "\t";
          for (int i = 0; i < grossBreite; i++){
@@ -22,7 +42,7 @@ public class Main {
          }
 
         //Bestimmung, ob das Jahr ein Schaltjahr ist
-        System.out.println("Ist das Jahr ein Schaltjahr \t" + (istSchaltjahr(jahr) ? "ja" : "nein"));
+        System.out.println(SCHALTJAHR_MESSAGE[sprache] + (istSchaltjahr(jahr) ? JA_ANTWORT[sprache] : NEIN_ANTWORT[sprache]));
 
         Calendar calendar = Calendar.getInstance();
 
@@ -35,8 +55,8 @@ public class Main {
 
             int tagenInMonat = yearMonth.lengthOfMonth();
 
-            System.out.println(MONATEN[iMonaten]);
-            printWocheName(breite);
+            System.out.println(MONATEN[sprache][iMonaten]);
+            printWocheName(breite, sprache);
 
             int startMonatWochetag = calendar.get(Calendar.DAY_OF_WEEK) - 2;
             if (startMonatWochetag == -1) startMonatWochetag = 6;
@@ -67,8 +87,8 @@ public class Main {
         }
     }
 
-    public static void printWocheName(String breite) {
-        for (String wocheTag :  WOCHE){
+    public static void printWocheName(String breite, int sprache) {
+        for (String wocheTag :  WOCHE[sprache]){
             System.out.print(wocheTag + breite);
         }
         System.out.println();
