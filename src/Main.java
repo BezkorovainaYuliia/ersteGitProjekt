@@ -14,6 +14,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int jahr = sc.nextInt();
 
+        //Bestimmung, ob das Jahr ein Schaltjahr ist
+        System.out.println("Ist das Jahr ein Schaltjahr \t" + (istSchaltjahr(jahr) ? "ja" : "nein"));
+
         Calendar calendar = Calendar.getInstance();
 
 
@@ -62,5 +65,11 @@ public class Main {
             System.out.print(wocheTag + "\t");
         }
         System.out.println();
+    }
+
+    public static boolean istSchaltjahr(int jahr){
+        YearMonth yearMonth = YearMonth.of(jahr, 2);
+        int tagenInMonat = yearMonth.lengthOfMonth();
+        return tagenInMonat == 29;
     }
 }
