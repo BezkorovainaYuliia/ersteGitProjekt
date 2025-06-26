@@ -22,6 +22,8 @@ public class Main {
     public static final String[] JA_ANTWORT = {"JA", "YES", "ТАК"};
     public static final String[] NEIN_ANTWORT = {"NEIN", "NO", "НІ"};
 
+    public static final String[] ERSTE_JANUAR = {"Den 1. Januar des Jahres ist ", "January 1 of the year is ", "1 січня року - це "};
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -31,9 +33,11 @@ public class Main {
             System.out.println("Es gibt ein Fehler. Weiter spreche ich auf Deutsch");
             sprache = 0;
         }
+        //Wahl des Jahr
         System.out.println(JAHR_MESSAGE[sprache]);
         int jahr = sc.nextInt();
 
+        //Breite
         System.out.println(BREITE_MESSAGE[sprache]);
         int grossBreite = sc.nextInt();
         String breite = "\t";
@@ -45,6 +49,12 @@ public class Main {
         System.out.println(SCHALTJAHR_MESSAGE[sprache] + (istSchaltjahr(jahr) ? JA_ANTWORT[sprache] : NEIN_ANTWORT[sprache]));
 
         Calendar calendar = Calendar.getInstance();
+
+        //Berechnung des Wochentags für den 1. Januar des Jahres
+        calendar.set(jahr,Calendar.JANUARY,1);
+        int startMonatWochetag = calendar.get(Calendar.DAY_OF_WEEK) - 2;
+        if (startMonatWochetag == -1) startMonatWochetag = 6;
+        System.out.println(ERSTE_JANUAR[sprache] + WOCHE[sprache][startMonatWochetag]);
 
 
         for (int iMonaten = 0; iMonaten < 12; iMonaten++){
@@ -58,7 +68,7 @@ public class Main {
             System.out.println(MONATEN[sprache][iMonaten]);
             printWocheName(breite, sprache);
 
-            int startMonatWochetag = calendar.get(Calendar.DAY_OF_WEEK) - 2;
+            startMonatWochetag = calendar.get(Calendar.DAY_OF_WEEK) - 2;
             if (startMonatWochetag == -1) startMonatWochetag = 6;
 
             int tag = 1;
